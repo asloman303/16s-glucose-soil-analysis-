@@ -28,10 +28,10 @@ module load dorado/0.9.1-foss-2023a-CUDA-12.1.1
 # --- DEFINE PATHS ---
 MODEL_PATH="models/dna_r9.4.1_e8_sup@v3.6"
 
-### NEW: Create the output directory if it doesn't already exist.
+
 mkdir -p output_bams
 
-### EDITED: The list of folders now correctly skips barcode11.
+
 BARCODE_FOLDERS=(
   barcode01 barcode02 barcode03
   barcode04 barcode05 barcode06
@@ -42,7 +42,7 @@ BARCODE_FOLDERS=(
 INDEX=$((SLURM_ARRAY_TASK_ID - 1))
 INPUT_FOLDER=${BARCODE_FOLDERS[$INDEX]}
 
-### EDITED: The input path is simplified because you are in the fast5_pass directory.
+
 INPUT_DIR="${INPUT_FOLDER}"
 OUTPUT_BAM="output_bams/${INPUT_FOLDER}.bam"
 
